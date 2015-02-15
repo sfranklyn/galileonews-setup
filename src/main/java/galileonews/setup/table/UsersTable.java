@@ -36,12 +36,31 @@ public class UsersTable {
             + "user_name varchar(50) not null,"
             + "user_password varchar(128),"
             + "user_full_name varchar(200),"
-            + "user_email varchar(200),"
-            + "user_phone varchar(50),"
+            + "user_desc varchar(200),"
+            + "user_create_date datetime,"
+            + "user_create_by varchar(50),"
             + "user_last_pwd_change datetime,"
             + "constraint primary key (user_id),"
             + "constraint nk_users unique (user_name)"
             + ");";
+
+    private static final String usersSql = "insert into users ("
+            + "user_name," //1
+            + "user_password," //2
+            + "user_full_name," //3
+            + "user_desc," //4
+            + "user_create_date," //5
+            + "user_create_by," //6
+            + "user_last_pwd_change" //7
+            + ") values ("
+            + "?," //1
+            + "?," //2
+            + "?," //3
+            + "?," //4
+            + "?," //5
+            + "?," //6
+            + "?" //7
+            + ")";
 
     public void drop(Statement stmt) throws SQLException {
         stmt.executeUpdate("drop table if exists users;");
@@ -55,19 +74,6 @@ public class UsersTable {
             final Connection conn)
             throws SQLException {
         int userId = 0;
-        String usersSql = "insert into users ("
-                + "user_name," //1
-                + "user_password," //2
-                + "user_full_name," //3
-                + "user_email," //4
-                + "user_last_pwd_change";   //5
-        usersSql = usersSql.concat(") values ("
-                + "?," //1
-                + "?," //2
-                + "?," //3
-                + "?," //4
-                + "?"); //5
-        usersSql = usersSql.concat(")");
         Date now = new Date();
         try (PreparedStatement usersStmt
                 = conn.prepareStatement(usersSql,
@@ -75,8 +81,10 @@ public class UsersTable {
             usersStmt.setString(1, (String) paramMap.get("user_name"));
             usersStmt.setString(2, (String) paramMap.get("user_password"));
             usersStmt.setString(3, (String) paramMap.get("user_full_name"));
-            usersStmt.setString(4, (String) paramMap.get("user_email"));
-            usersStmt.setTimestamp(5, new Timestamp(now.getTime()));
+            usersStmt.setString(4, (String) paramMap.get("user_desc"));
+            usersStmt.setTimestamp(5, new Timestamp(now.getTime())); //user_create_date
+            usersStmt.setString(6, "setup"); //user_create_by
+            usersStmt.setTimestamp(7, new Timestamp(now.getTime())); //user_last_pwd_change
             usersStmt.executeUpdate();
             ResultSet resultSet = usersStmt.getGeneratedKeys();
             if (resultSet.next()) {

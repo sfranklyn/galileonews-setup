@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import galileonews.setup.table.ConfigsTable;
+import galileonews.setup.table.NewsTable;
 import galileonews.setup.table.RolesTable;
 import galileonews.setup.table.UrlsRolesTable;
 import galileonews.setup.table.UsersRolesTable;
@@ -109,18 +110,21 @@ public class SetupService {
             UsersRolesTable usersRolesTable = new UsersRolesTable();
             UrlsRolesTable urlsRolesTable = new UrlsRolesTable();
             ConfigsTable configsTable = new ConfigsTable();
+            NewsTable newsTable = new NewsTable();
 
             urlsRolesTable.drop(stmt);
             usersRolesTable.drop(stmt);
             usersTable.drop(stmt);
             rolesTable.drop(stmt);
             configsTable.drop(stmt);
+            newsTable.drop(stmt);
 
             usersTable.create(stmt);
             rolesTable.create(stmt);
             usersRolesTable.create(stmt);
             urlsRolesTable.create(stmt);
             configsTable.create(stmt);
+            newsTable.create(stmt);
 
             String roleName = "ADM";
             String roleDesc = "Administrator";
@@ -140,6 +144,7 @@ public class SetupService {
             String userPassword = hashPassword("adm1");
             paramMap.put("user_password", userPassword);
             paramMap.put("user_full_name", "Administrator One");
+            paramMap.put("user_desc", "Created By Setup");
             paramMap.put("user_email", "-");
             final int adminUserId1 = usersTable.insert(paramMap, conn);
             usersRolesTable.insert(adminUserId1, adminRoleId, conn);
@@ -150,7 +155,7 @@ public class SetupService {
             paramMap.put("user_name", userName1);
             paramMap.put("user_password", userPassword);
             paramMap.put("user_full_name", "User One");
-            paramMap.put("user_email", "-");
+            paramMap.put("user_desc", "Created By Setup");
             final int userId1 = usersTable.insert(paramMap, conn);
 
             paramMap = new HashMap<>();
@@ -159,7 +164,7 @@ public class SetupService {
             paramMap.put("user_name", userName2);
             paramMap.put("user_password", userPassword);
             paramMap.put("user_full_name", "User Two");
-            paramMap.put("user_email", "-");
+            paramMap.put("user_desc", "Created By Setup");
             final int userId2 = usersTable.insert(paramMap, conn);
 
             usersRolesTable.insert(userId1, userRoleId, conn);
