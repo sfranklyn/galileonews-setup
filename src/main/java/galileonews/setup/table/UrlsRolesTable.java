@@ -82,22 +82,6 @@ public class UrlsRolesTable {
         insertUrlsRoles(paramMap, conn);
     }
 
-    public void insertOwnerUrlsRoles(final int roleId, Connection conn)
-            throws SQLException {
-
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("role_id", roleId);
-
-        paramMap.put("url_role", urlPrefix + "index.xhtml");
-        insertUrlsRoles(paramMap, conn);
-
-        paramMap.put("url_role", urlPrefix + "tickets.xhtml");
-        insertUrlsRoles(paramMap, conn);
-
-        paramMap.put("url_role", urlPrefix + "change_password.xhtml");
-        insertUrlsRoles(paramMap, conn);
-    }
-
     public void insertAdmUrlsRoles(final int roleId, Connection conn)
             throws SQLException {
 
@@ -164,59 +148,15 @@ public class UrlsRolesTable {
         paramMap.put("url_role", urlPrefix + "configsUpdate.xhtml");
         insertUrlsRoles(paramMap, conn);
 
-        paramMap.put("url_role", urlPrefix + "owners.xhtml");
+        paramMap.put("url_role", urlPrefix + "news.xhtml");
         insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ownersCreate.xhtml");
+        paramMap.put("url_role", urlPrefix + "newsCreate.xhtml");
         insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ownersDelete.xhtml");
+        paramMap.put("url_role", urlPrefix + "newsDelete.xhtml");
         insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ownersRead.xhtml");
+        paramMap.put("url_role", urlPrefix + "newsRead.xhtml");
         insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ownersUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-
-        paramMap.put("url_role", urlPrefix + "locations.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "locationsCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "locationsDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "locationsRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "locationsUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-
-        paramMap.put("url_role", urlPrefix + "computers.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "computersCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "computersDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "computersRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "computersUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-
-        paramMap.put("url_role", urlPrefix + "prices.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "pricesCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "pricesDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "pricesRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "pricesUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-
-        paramMap.put("url_role", urlPrefix + "tickets.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ticketsCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ticketsDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ticketsRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
-        paramMap.put("url_role", urlPrefix + "ticketsUpdate.xhtml");
+        paramMap.put("url_role", urlPrefix + "newsUpdate.xhtml");
         insertUrlsRoles(paramMap, conn);
     }
 
