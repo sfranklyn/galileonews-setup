@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import galileonews.setup.table.ConfigsTable;
+import galileonews.setup.table.GtidsTable;
 import galileonews.setup.table.NewsTable;
 import galileonews.setup.table.RolesTable;
 import galileonews.setup.table.UrlsRolesTable;
@@ -111,6 +112,7 @@ public class SetupService {
             UrlsRolesTable urlsRolesTable = new UrlsRolesTable();
             ConfigsTable configsTable = new ConfigsTable();
             NewsTable newsTable = new NewsTable();
+            GtidsTable gtidsTable = new GtidsTable();
 
             urlsRolesTable.drop(stmt);
             usersRolesTable.drop(stmt);
@@ -118,6 +120,7 @@ public class SetupService {
             rolesTable.drop(stmt);
             configsTable.drop(stmt);
             newsTable.drop(stmt);
+            gtidsTable.drop(stmt);
 
             usersTable.create(stmt);
             rolesTable.create(stmt);
@@ -125,6 +128,7 @@ public class SetupService {
             urlsRolesTable.create(stmt);
             configsTable.create(stmt);
             newsTable.create(stmt);
+            gtidsTable.create(stmt);
 
             String roleName = "ADM";
             String roleDesc = "Administrator";
