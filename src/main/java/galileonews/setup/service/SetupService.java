@@ -32,6 +32,7 @@ import galileonews.setup.table.NewsTable;
 import galileonews.setup.table.RolesTable;
 import galileonews.setup.table.UrlsRolesTable;
 import galileonews.setup.table.UsersRolesTable;
+import org.joda.time.DateTime;
 
 /**
  *
@@ -174,9 +175,35 @@ public class SetupService {
             usersRolesTable.insert(userId1, userRoleId, conn);
             usersRolesTable.insert(userId2, userRoleId, conn);
 
-            urlsRolesTable.insertAdmUrlsRoles(adminRoleId, conn);
-            urlsRolesTable.insertUserUrlsRoles(userRoleId, conn);
- 
+            urlsRolesTable.insertAdm(adminRoleId, conn);
+            urlsRolesTable.insertUser(userRoleId, conn);
+
+            DateTime today = new DateTime();                    
+            paramMap = new HashMap<>();
+            StringBuilder newsText= new StringBuilder();
+            newsText.append("Berita 1\n\n");
+            newsText.append("Baris 1\n");
+            newsText.append("Baris 2\n");
+            newsText.append("Baris 3\n");
+            paramMap.put("news_text", newsText.toString());
+            paramMap.put("news_valid_from", today.getMillis());
+            paramMap.put("news_valid_to", today.plusDays(1).getMillis());
+            paramMap.put("news_important", false);
+            paramMap.put("news_pcc", "*");
+            newsTable.insert(paramMap, conn);
+            paramMap = new HashMap<>();
+
+            newsText= new StringBuilder();
+            newsText.append("Berita 2\n\n");
+            newsText.append("Baris 1\n");
+            newsText.append("Baris 2\n\n");
+            newsText.append("Baris 3\n");
+            paramMap.put("news_text", newsText.toString());
+            paramMap.put("news_valid_from", today.plusDays(1).getMillis());
+            paramMap.put("news_valid_to", today.plusDays(2).getMillis());
+            paramMap.put("news_important", true);
+            paramMap.put("news_pcc", "756O");
+            newsTable.insert(paramMap, conn);
         }
     }
 

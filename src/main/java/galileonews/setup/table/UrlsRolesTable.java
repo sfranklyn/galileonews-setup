@@ -58,7 +58,7 @@ public class UrlsRolesTable {
         stmt.executeUpdate(urlsRolesCreateSql);
     }
 
-    public void insertUrlsRoles(final Map paramMap,
+    public void insert(final Map paramMap,
             final Connection conn)
             throws SQLException {
         try (PreparedStatement urlsRolesStmt = conn.
@@ -69,95 +69,98 @@ public class UrlsRolesTable {
         }
     }
 
-    public void insertUserUrlsRoles(final int roleId, Connection conn)
+    public void insertUser(final int roleId, Connection conn)
             throws SQLException {
 
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("role_id", roleId);
 
         paramMap.put("url_role", urlPrefix + "index.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
+
+        paramMap.put("url_role", urlPrefix + "news.xhtml");
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "change_password.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
     }
 
-    public void insertAdmUrlsRoles(final int roleId, Connection conn)
+    public void insertAdm(final int roleId, Connection conn)
             throws SQLException {
 
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("role_id", roleId);
 
         paramMap.put("url_role", urlPrefix + "advanced.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "index.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "change_password.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "users.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "usersCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "usersDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "usersRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "usersUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "roles.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "rolesCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "rolesDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "rolesRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "rolesUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "users_roles.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "users_rolesCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "users_rolesDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "users_rolesRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "urls_roles.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "urls_rolesCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "urls_rolesDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "urls_rolesRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "configs.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "configsCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "configsDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "configsRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "configsUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
 
         paramMap.put("url_role", urlPrefix + "news.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "newsCreate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "newsDelete.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "newsRead.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "newsUpdate.xhtml");
-        insertUrlsRoles(paramMap, conn);
+        insert(paramMap, conn);
     }
 
 }
