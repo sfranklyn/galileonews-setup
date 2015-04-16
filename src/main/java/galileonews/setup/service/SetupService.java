@@ -260,6 +260,32 @@ public class SetupService {
             paramMap.put("news_pcc", "756O");
             newsTable.insert(paramMap, conn);
 
+            newsText= new StringBuilder();
+            newsText.append("Berita 7\n\n");
+            newsText.append("Baris 1\n");
+            newsText.append("Baris 2\n");
+            newsText.append("Baris 3\n");
+            newsText.append("Baris 4\n");
+            paramMap.put("news_text", newsText.toString());
+            paramMap.put("news_valid_from", today.minusDays(1).getMillis());
+            paramMap.put("news_valid_to", today.plusDays(2).getMillis());
+            paramMap.put("news_important", true);
+            paramMap.put("news_pcc", "756O");
+            newsTable.insert(paramMap, conn);
+
+            newsText= new StringBuilder();
+            newsText.append("Berita 8\n\n");
+            newsText.append("Baris 1\n");
+            newsText.append("Baris 2\n");
+            newsText.append("Baris 3\n");
+            newsText.append("Baris 4\n");
+            paramMap.put("news_text", newsText.toString());
+            paramMap.put("news_valid_from", today.minusDays(1).getMillis());
+            paramMap.put("news_valid_to", today.plusDays(2).getMillis());
+            paramMap.put("news_important", true);
+            paramMap.put("news_pcc", "756O");
+            newsTable.insert(paramMap, conn);
+
         }
     }
 
