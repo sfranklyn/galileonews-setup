@@ -29,7 +29,7 @@ public class AttachmentTable {
             + "attachment_id int not null auto_increment,"
             + "news_id int not null,"
             + "attachment_file_name varchar(250),"
-            + "attachment_file_type varchar(10),"
+            + "attachment_file_type varchar(30),"
             + "attachment_content mediumblob,"
             + "constraint primary key (attachment_id),"
             + "constraint fk_attachment1 "
