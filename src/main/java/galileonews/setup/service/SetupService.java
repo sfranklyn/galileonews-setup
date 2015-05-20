@@ -15,7 +15,7 @@
  */
 package galileonews.setup.service;
 
-import galileonews.setup.table.AttachmentTable;
+import galileonews.setup.table.AttachmentsTable;
 import galileonews.setup.table.UsersTable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -115,7 +115,7 @@ public class SetupService {
             ConfigsTable configsTable = new ConfigsTable();
             NewsTable newsTable = new NewsTable();
             GtidsTable gtidsTable = new GtidsTable();
-            AttachmentTable attachmentTable = new AttachmentTable();
+            AttachmentsTable attachmentTable = new AttachmentsTable();
 
             urlsRolesTable.drop(stmt);
             usersRolesTable.drop(stmt);

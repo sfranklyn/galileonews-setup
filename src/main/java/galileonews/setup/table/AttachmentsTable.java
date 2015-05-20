@@ -22,10 +22,10 @@ import java.sql.Statement;
  *
  * @author Samuel Franklyn <sfranklyn@gmail.com>
  */
-public class AttachmentTable {
+public class AttachmentsTable {
 
-    private static final String attachmentCreateSql
-            = "create table attachment ("
+    private static final String attachmentsCreateSql
+            = "create table attachments ("
             + "attachment_id int not null auto_increment,"
             + "news_id int not null,"
             + "attachment_file_name varchar(250),"
@@ -38,11 +38,11 @@ public class AttachmentTable {
             + ");";
 
     public void drop(Statement stmt) throws SQLException {
-        stmt.executeUpdate("drop table if exists attachment;");
+        stmt.executeUpdate("drop table if exists attachments;");
     }
 
     public void create(Statement stmt) throws SQLException {
-        stmt.executeUpdate(attachmentCreateSql);
+        stmt.executeUpdate(attachmentsCreateSql);
     }
 
 }

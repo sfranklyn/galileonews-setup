@@ -161,6 +161,13 @@ public class UrlsRolesTable {
         insert(paramMap, conn);
         paramMap.put("url_role", urlPrefix + "newsUpdate.xhtml");
         insert(paramMap, conn);
+                
+        paramMap.put("url_role", urlPrefix + "attachments.xhtml");
+        insert(paramMap, conn);
+        paramMap.put("url_role", urlPrefix + "attachmentsCreate.xhtml");
+        insert(paramMap, conn);
+        paramMap.put("url_role", urlPrefix + "attachmentsDelete.xhtml");
+        insert(paramMap, conn);
     }
 
 }
