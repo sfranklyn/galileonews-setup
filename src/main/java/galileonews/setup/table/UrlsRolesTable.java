@@ -81,6 +81,9 @@ public class UrlsRolesTable {
         paramMap.put("url_role", urlPrefix + "news.xhtml");
         insert(paramMap, conn);
 
+        paramMap.put("url_role", urlPrefix + "newsRead.xhtml");
+        insert(paramMap, conn);
+
         paramMap.put("url_role", urlPrefix + "change_password.xhtml");
         insert(paramMap, conn);
     }
