@@ -30,6 +30,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import net.java.dev.designgridlayout.DesignGridLayout;
 import galileonews.setup.service.SetupService;
+import java.io.IOException;
 
 /**
  *
@@ -100,7 +101,7 @@ public class SetUpForm extends JFrame {
             }
             setup.execute(textServer.getText(), textPort.getText(),
                     textUser.getText(), new String(textPassword.getPassword()));
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             Logger.getLogger(SetUpForm.class.getName()).log(Level.SEVERE, null, ex);
             return;

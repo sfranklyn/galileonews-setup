@@ -1,0 +1,100 @@
+Aplikasi Galileo News
+=====================
+Samuel Franklyn <sfranklyn@gmail.com>
+v1.0, 2015-09-03
+:toc:
+:numbered:
+
+Web Interface 
+-------------
+Untuk memelihara berita dan user/login
+
+Role user :
+
+1. Admin -> bisa add, edit dan delete berita dan juga bisa add, edit, delete 
+   user dan reset password
+
+2. User -> hanya bisa view berita
+
+Table user : 
+
+- id
+- login
+- password
+- name
+- role id
+- description
+- create time & date
+- created by
+
+News/berita bisa memiliki attachment berupa file pdf, txt, htm/html, jpg/jpeg, 
+png. Attachment ini akan muncul sbg link yg bisa dilihat dgn url spt 
+http://server:port/appname/news/idxxxxxx
+
+Table news :
+
+- id
+- news
+- create time & date
+- created by
+- valid from (tanggal berita ini mulai bisa dilihat dr web service)
+- valid to (tanggal terakhir berita ini masih bisa dilihat dr web svc)
+- important (true/false)
+- pcc (list pcc yg bisa melihat berita ini, * artinya semua pcc)
+
+Web Service
+-----------
+Input parameter : 
+
+- username ws 
+- password ws
+- pcc
+- gtid
+- signon
+- all news/important only
+- ascending/descending (urutan berdasarkan tgl berita)
+
+Output :
+
+- List berita (baris/line dipotong kalau ada CR/LF)
+  (contoh setelah line 1 enter 2 kali jadi ada baris yg kosong)
+Contohnya : 
+
+-------------------------------------------------------------
+<news>
+  <msg>
+    <id>xxxxx</id>
+    <line>Silakan klik link dibawah ini</line>
+    <line>http://server:port/appname/news/idxxxxxx</line>
+  </msg>
+  <msg>
+    <id>yyyyy</id>
+    <line>Line 1</line> 
+    <line></line>
+    <line>Line 2</line>
+  </msg>
+<news>
+-------------------------------------------------------------
+
+Web service akan memberikan output sesuai parameter input pcc, 
+all/important only, asc/desc selama news tsb masih valid tanggalnya lalu 
+Web Service juga akan menulis gtid nya di tabel gtids dengan timestamp saat itu.
+
+Table gtids :
+
+- id
+- pcc
+- gtid
+- signon
+- timestamp
+
+PCC, GTID & signon di tabel tidak unique (asalkan timestamp tidak sama), 
+jadi setiap kali request akan tercatat di tabel
+
+Tabel ini bisa di view dari web interface dan bisa di filter berdasarkan pcc, 
+gtid, signon dan timestamp range
+
+Tabel juga bisa di export ke excel.
+
+Parameter signon itu optional, jadi bisa aja signon nya empty 
+(kalau nanti client nya dijalankan pas seblm signon.

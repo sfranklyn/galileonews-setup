@@ -33,6 +33,7 @@ import galileonews.setup.table.NewsTable;
 import galileonews.setup.table.RolesTable;
 import galileonews.setup.table.UrlsRolesTable;
 import galileonews.setup.table.UsersRolesTable;
+import java.io.IOException;
 import org.joda.time.DateTime;
 
 /**
@@ -99,7 +100,7 @@ public class SetupService {
     }
 
     public void execute(String server, String port, String user, String password)
-            throws ClassNotFoundException, SQLException {
+            throws ClassNotFoundException, SQLException, IOException {
 
         createDb(server, port, user, password);
 
@@ -194,9 +195,14 @@ public class SetupService {
             paramMap.put("news_valid_to", today.plusDays(1).getMillis());
             paramMap.put("news_important", false);
             paramMap.put("news_pcc", "*");
-            newsTable.insert(paramMap, conn);
+            int newsId1 = newsTable.insert(paramMap, conn);
+            
             paramMap = new HashMap<>();
-
+            paramMap.put("news_id", newsId1);
+            paramMap.put("attachment_file_name", "Spesifikasi_Galileo_News.txt");
+            attachmentTable.insert(paramMap, conn);
+            
+            paramMap = new HashMap<>();
             newsText= new StringBuilder();
             newsText.append("Berita 2\n\n");
             newsText.append("Baris 1\n");
@@ -207,8 +213,14 @@ public class SetupService {
             paramMap.put("news_valid_to", today.plusDays(1).getMillis());
             paramMap.put("news_important", false);
             paramMap.put("news_pcc", "*");
-            newsTable.insert(paramMap, conn);
+            int newsId2 = newsTable.insert(paramMap, conn);
 
+            paramMap = new HashMap<>();
+            paramMap.put("news_id", newsId2);
+            paramMap.put("attachment_file_name", "Spesifikasi_Galileo_News.html");
+            attachmentTable.insert(paramMap, conn);
+
+            paramMap = new HashMap<>();
             newsText= new StringBuilder();
             newsText.append("Berita 3\n\n");
             newsText.append("Baris 1\n");
@@ -220,8 +232,14 @@ public class SetupService {
             paramMap.put("news_valid_to", today.plusDays(1).getMillis());
             paramMap.put("news_important", true);
             paramMap.put("news_pcc", "756O");
-            newsTable.insert(paramMap, conn);
+            int newsId3 = newsTable.insert(paramMap, conn);
 
+            paramMap = new HashMap<>();
+            paramMap.put("news_id", newsId3);
+            paramMap.put("attachment_file_name", "Spesifikasi_Galileo_News.pdf");
+            attachmentTable.insert(paramMap, conn);
+
+            paramMap = new HashMap<>();
             newsText= new StringBuilder();
             newsText.append("Berita 4\n\n");
             newsText.append("Baris 1\n");
@@ -233,8 +251,14 @@ public class SetupService {
             paramMap.put("news_valid_to", today.plusDays(2).getMillis());
             paramMap.put("news_important", false);
             paramMap.put("news_pcc", "756O");
-            newsTable.insert(paramMap, conn);
+            int newsId4 = newsTable.insert(paramMap, conn);
 
+            paramMap = new HashMap<>();
+            paramMap.put("news_id", newsId4);
+            paramMap.put("attachment_file_name", "Galileo_News.jpg");
+            attachmentTable.insert(paramMap, conn);
+
+            paramMap = new HashMap<>();
             newsText= new StringBuilder();
             newsText.append("Berita 5\n\n");
             newsText.append("Baris 1\n");
@@ -245,8 +269,14 @@ public class SetupService {
             paramMap.put("news_valid_to", today.plusDays(2).getMillis());
             paramMap.put("news_important", false);
             paramMap.put("news_pcc", "*");
-            newsTable.insert(paramMap, conn);
+            int newsId5 = newsTable.insert(paramMap, conn);
 
+            paramMap = new HashMap<>();
+            paramMap.put("news_id", newsId5);
+            paramMap.put("attachment_file_name", "Galileo_News.png");
+            attachmentTable.insert(paramMap, conn);
+
+            paramMap = new HashMap<>();
             newsText= new StringBuilder();
             newsText.append("Berita 6\n\n");
             newsText.append("Baris 1\n");
