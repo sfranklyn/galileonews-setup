@@ -24,7 +24,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>1.4.0</version>
                 <configuration>
                     <mainClass>galileonews.setup.view.SetUpForm</mainClass>
                 </configuration>
@@ -33,7 +33,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
+                <version>2.6</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -109,7 +109,7 @@
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.7</version>
+            <version>2.9.1</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

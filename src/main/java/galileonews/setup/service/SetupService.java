@@ -42,16 +42,16 @@ import org.joda.time.DateTime;
  */
 public class SetupService {
 
-    private static final Logger log = Logger.getLogger(SetupService.class.getName());
-    private static final String driver = "com.mysql.jdbc.Driver";
+    private static final Logger LOGGER = Logger.getLogger(SetupService.class.getName());
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static MessageDigest messageDigest = null;
 
     static {
         try {
             messageDigest = MessageDigest.getInstance("SHA-512");
-            Class.forName(driver);
+            Class.forName(DRIVER);
         } catch (NoSuchAlgorithmException | ClassNotFoundException ex) {
-            log.log(Level.SEVERE, ex.getMessage(), ex);
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex);
         }
     }
 
@@ -61,7 +61,7 @@ public class SetupService {
             messageDigest.reset();
             hash = messageDigest.digest(password.getBytes());
         } catch (Exception ex) {
-            log.log(Level.SEVERE, ex.getMessage(), ex);
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex);
         }
         return getHexString(hash);
     }
@@ -183,9 +183,9 @@ public class SetupService {
             urlsRolesTable.insertAdm(adminRoleId, conn);
             urlsRolesTable.insertUser(userRoleId, conn);
 
-            DateTime today = new DateTime();                    
+            DateTime today = new DateTime();
             paramMap = new HashMap<>();
-            StringBuilder newsText= new StringBuilder();
+            StringBuilder newsText = new StringBuilder();
             newsText.append("Berita 1\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n");
@@ -196,14 +196,14 @@ public class SetupService {
             paramMap.put("news_important", false);
             paramMap.put("news_pcc", "*");
             int newsId1 = newsTable.insert(paramMap, conn);
-            
+
             paramMap = new HashMap<>();
             paramMap.put("news_id", newsId1);
             paramMap.put("attachment_file_name", "Spesifikasi_Galileo_News.txt");
             attachmentTable.insert(paramMap, conn);
-            
+
             paramMap = new HashMap<>();
-            newsText= new StringBuilder();
+            newsText = new StringBuilder();
             newsText.append("Berita 2\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n\n");
@@ -221,7 +221,7 @@ public class SetupService {
             attachmentTable.insert(paramMap, conn);
 
             paramMap = new HashMap<>();
-            newsText= new StringBuilder();
+            newsText = new StringBuilder();
             newsText.append("Berita 3\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n");
@@ -240,7 +240,7 @@ public class SetupService {
             attachmentTable.insert(paramMap, conn);
 
             paramMap = new HashMap<>();
-            newsText= new StringBuilder();
+            newsText = new StringBuilder();
             newsText.append("Berita 4\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n");
@@ -259,7 +259,7 @@ public class SetupService {
             attachmentTable.insert(paramMap, conn);
 
             paramMap = new HashMap<>();
-            newsText= new StringBuilder();
+            newsText = new StringBuilder();
             newsText.append("Berita 5\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n\n");
@@ -277,7 +277,7 @@ public class SetupService {
             attachmentTable.insert(paramMap, conn);
 
             paramMap = new HashMap<>();
-            newsText= new StringBuilder();
+            newsText = new StringBuilder();
             newsText.append("Berita 6\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n");
@@ -290,7 +290,7 @@ public class SetupService {
             paramMap.put("news_pcc", "756O");
             newsTable.insert(paramMap, conn);
 
-            newsText= new StringBuilder();
+            newsText = new StringBuilder();
             newsText.append("Berita 7\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n");
@@ -303,7 +303,7 @@ public class SetupService {
             paramMap.put("news_pcc", "756O");
             newsTable.insert(paramMap, conn);
 
-            newsText= new StringBuilder();
+            newsText = new StringBuilder();
             newsText.append("Berita 8\n\n");
             newsText.append("Baris 1\n");
             newsText.append("Baris 2\n");
