@@ -13,7 +13,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <netbeans.hint.license>apache20</netbeans.hint.license>
-        <wildfly-home>/home/sf/Java/wildfly-8.2.0.Final</wildfly-home>
+        <wildfly-home>/home/sf/Java/wildfly-10.0.0.Final</wildfly-home>
         <mysql.artifactId>mysql-connector-java</mysql.artifactId>
         <mysql.driver.version>5.1.39</mysql.driver.version>
     </properties>
