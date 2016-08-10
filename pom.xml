@@ -15,7 +15,7 @@
         <netbeans.hint.license>apache20</netbeans.hint.license>
         <wildfly-home>/home/sf/Java/wildfly-8.2.0.Final</wildfly-home>
         <mysql.artifactId>mysql-connector-java</mysql.artifactId>
-        <mysql.driver.version>5.1.23</mysql.driver.version>
+        <mysql.driver.version>5.1.39</mysql.driver.version>
     </properties>
 
     <build>
@@ -82,7 +82,7 @@
                                         <user-name>galileonews</user-name>
                                         <password>galileonews</password>
                                         <driver-class>com.mysql.jdbc.Driver</driver-class>										
-                                        <driver-name>${mysql.artifactId}-${mysql.driver.version}.jar</driver-name>
+                                        <driver-name>mysql-connector-java-5.1.39.jar_com.mysql.jdbc.Driver_5_1</driver-name>
                                     </properties>
                                 </resource>
                             </resources>
